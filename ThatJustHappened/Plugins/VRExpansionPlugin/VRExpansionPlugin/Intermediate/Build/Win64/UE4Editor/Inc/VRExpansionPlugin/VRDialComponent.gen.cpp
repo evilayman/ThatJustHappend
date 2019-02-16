@@ -1698,6 +1698,11 @@ void EmptyLinkFunctionForGeneratedCodeVRDialComponent() {}
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_InteractorRotationAxis;
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_InteractorRotationAxis_Underlying;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bDialUseDirectHandRotation_MetaData[];
+#endif
+		static void NewProp_bDialUseDirectHandRotation_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bDialUseDirectHandRotation;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DialRotationAxis_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_DialRotationAxis;
@@ -1903,11 +1908,24 @@ void EmptyLinkFunctionForGeneratedCodeVRDialComponent() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis_MetaData[] = {
 		{ "Category", "VRDialComponent" },
+		{ "editcondition", "bDialUseDirectHandRotation" },
 		{ "ModuleRelativePath", "Public/Interactibles/VRDialComponent.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis = { UE4CodeGen_Private::EPropertyClass::Enum, "InteractorRotationAxis", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(UVRDialComponent, InteractorRotationAxis), Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis, METADATA_PARAMS(Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis_MetaData)) };
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis_Underlying = { UE4CodeGen_Private::EPropertyClass::Byte, "UnderlyingType", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0000000000000000, 1, nullptr, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation_MetaData[] = {
+		{ "Category", "VRDialComponent" },
+		{ "ModuleRelativePath", "Public/Interactibles/VRDialComponent.h" },
+		{ "ToolTip", "If true then the dial will directly sample the hands rotation instead of using its movement around it.\nThis is good for roll specific dials but is fairly bad elsewhere." },
+	};
+#endif
+	void Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation_SetBit(void* Obj)
+	{
+		((UVRDialComponent*)Obj)->bDialUseDirectHandRotation = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation = { UE4CodeGen_Private::EPropertyClass::Bool, "bDialUseDirectHandRotation", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(UVRDialComponent), &Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation_SetBit, METADATA_PARAMS(Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRDialComponent_Statics::NewProp_DialRotationAxis_MetaData[] = {
 		{ "Category", "VRDialComponent" },
@@ -2061,6 +2079,7 @@ void EmptyLinkFunctionForGeneratedCodeVRDialComponent() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_GripPriority,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_InteractorRotationAxis_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_bDialUseDirectHandRotation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_DialRotationAxis,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_DialRotationAxis_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRDialComponent_Statics::NewProp_RotationScaler,
@@ -2104,7 +2123,7 @@ void EmptyLinkFunctionForGeneratedCodeVRDialComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UVRDialComponent, 3178708216);
+	IMPLEMENT_CLASS(UVRDialComponent, 1526405964);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UVRDialComponent(Z_Construct_UClass_UVRDialComponent, &UVRDialComponent::StaticClass, TEXT("/Script/VRExpansionPlugin"), TEXT("UVRDialComponent"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UVRDialComponent);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

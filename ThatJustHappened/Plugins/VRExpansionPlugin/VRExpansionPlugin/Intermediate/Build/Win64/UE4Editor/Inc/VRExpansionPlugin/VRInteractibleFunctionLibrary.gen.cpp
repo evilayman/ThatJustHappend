@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeVRInteractibleFunctionLibrary() {}
 // Cross Module References
-	VREXPANSIONPLUGIN_API UScriptStruct* Z_Construct_UScriptStruct_FBPVRInteractibleBaseData();
+	VREXPANSIONPLUGIN_API UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis();
 	UPackage* Z_Construct_UPackage__Script_VRExpansionPlugin();
+	VREXPANSIONPLUGIN_API UScriptStruct* Z_Construct_UScriptStruct_FBPVRInteractibleBaseData();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	VREXPANSIONPLUGIN_API UClass* Z_Construct_UClass_UVRInteractibleFunctionLibrary_NoRegister();
@@ -23,7 +24,6 @@ void EmptyLinkFunctionForGeneratedCodeVRInteractibleFunctionLibrary() {}
 	VREXPANSIONPLUGIN_API UFunction* Z_Construct_UFunction_UVRInteractibleFunctionLibrary_Interactible_BeginPlayInit();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	VREXPANSIONPLUGIN_API UFunction* Z_Construct_UFunction_UVRInteractibleFunctionLibrary_Interactible_GetAngleAroundAxis();
-	VREXPANSIONPLUGIN_API UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis();
 	VREXPANSIONPLUGIN_API UFunction* Z_Construct_UFunction_UVRInteractibleFunctionLibrary_Interactible_GetAngleAroundAxisDelta();
 	VREXPANSIONPLUGIN_API UFunction* Z_Construct_UFunction_UVRInteractibleFunctionLibrary_Interactible_GetCurrentParentTransform();
 	VREXPANSIONPLUGIN_API UFunction* Z_Construct_UFunction_UVRInteractibleFunctionLibrary_Interactible_GetCurrentRelativeTransform();
@@ -31,6 +31,56 @@ void EmptyLinkFunctionForGeneratedCodeVRInteractibleFunctionLibrary() {}
 	VREXPANSIONPLUGIN_API UFunction* Z_Construct_UFunction_UVRInteractibleFunctionLibrary_Interactible_OnGripInit();
 	VREXPANSIONPLUGIN_API UScriptStruct* Z_Construct_UScriptStruct_FBPActorGripInformation();
 // End Cross Module References
+	static UEnum* EVRInteractibleAxis_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis, Z_Construct_UPackage__Script_VRExpansionPlugin(), TEXT("EVRInteractibleAxis"));
+		}
+		return Singleton;
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EVRInteractibleAxis(EVRInteractibleAxis_StaticEnum, TEXT("/Script/VRExpansionPlugin"), TEXT("EVRInteractibleAxis"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis_CRC() { return 4269252798U; }
+	UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_VRExpansionPlugin();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EVRInteractibleAxis"), 0, Get_Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis_CRC(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "EVRInteractibleAxis::Axis_X", (int64)EVRInteractibleAxis::Axis_X },
+				{ "EVRInteractibleAxis::Axis_Y", (int64)EVRInteractibleAxis::Axis_Y },
+				{ "EVRInteractibleAxis::Axis_Z", (int64)EVRInteractibleAxis::Axis_Z },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "IsBlueprintBase", "true" },
+				{ "ModuleRelativePath", "Public/Interactibles/VRInteractibleFunctionLibrary.h" },
+				{ "ToolTip", "Declares our interactible axis's" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_VRExpansionPlugin,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				"EVRInteractibleAxis",
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				nullptr,
+				(uint8)UEnum::ECppForm::EnumClass,
+				"EVRInteractibleAxis",
+				Enumerators,
+				ARRAY_COUNT(Enumerators),
+				METADATA_PARAMS(Enum_MetaDataParams, ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 class UScriptStruct* FBPVRInteractibleBaseData::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;

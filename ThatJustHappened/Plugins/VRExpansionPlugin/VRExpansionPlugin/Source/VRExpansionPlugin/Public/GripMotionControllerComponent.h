@@ -289,7 +289,7 @@ public:
 	// Notify change on relative position editing as well, make RPCS callable in blueprint
 	// Notify the server that we locally gripped something
 	UFUNCTION(Reliable, Server, WithValidation)
-	void Server_NotifyLocalGripRemoved(uint8 GripID, FVector_NetQuantize100 AngularVelocity, FVector_NetQuantize100 LinearVelocity);
+	void Server_NotifyLocalGripRemoved(uint8 GripID, const FTransform_NetQuantize &TransformAtDrop, FVector_NetQuantize100 AngularVelocity, FVector_NetQuantize100 LinearVelocity);
 	
 
 	// Enable this to send the TickGrip event every tick even for non custom grip types - has a slight performance hit
@@ -354,7 +354,9 @@ public:
 		else // Check for changes from cached information
 		{
 			// Manage lerp states
-			if (Grip.ValueCache.bCachedHasSecondaryAttachment != Grip.SecondaryGripInfo.bHasSecondaryAttachment || !Grip.ValueCache.CachedSecondaryRelativeTransform.Equals(Grip.SecondaryGripInfo.SecondaryRelativeTransform))
+			if ((Grip.ValueCache.bCachedHasSecondaryAttachment != Grip.SecondaryGripInfo.bHasSecondaryAttachment) || 
+				(Grip.ValueCache.OldSecondaryAttachment != Grip.SecondaryGripInfo.SecondaryAttachment) ||
+				(!Grip.ValueCache.CachedSecondaryRelativeTransform.Equals(Grip.SecondaryGripInfo.SecondaryRelativeTransform)))
 			{
 				// Reset the secondary grip distance
 				Grip.SecondaryGripInfo.SecondaryGripDistance = 0.0f;
@@ -382,8 +384,34 @@ public:
 					}
 				}
 
-				// Now calling the on secondary grip interface function client side as well
-				if (Grip.SecondaryGripInfo.bHasSecondaryAttachment)
+				bool bSendReleaseEvent = ((!Grip.SecondaryGripInfo.bHasSecondaryAttachment && Grip.ValueCache.bCachedHasSecondaryAttachment) || 
+										((Grip.SecondaryGripInfo.bHasSecondaryAttachment && Grip.ValueCache.bCachedHasSecondaryAttachment) && 
+										(Grip.ValueCache.OldSecondaryAttachment != Grip.SecondaryGripInfo.SecondaryAttachment)));
+
+				bool bSendGripEvent =	(Grip.SecondaryGripInfo.bHasSecondaryAttachment && 
+										(!Grip.ValueCache.bCachedHasSecondaryAttachment || (Grip.ValueCache.OldSecondaryAttachment != Grip.SecondaryGripInfo.SecondaryAttachment)));
+
+				if (bSendReleaseEvent)
+				{
+					if (Grip.GrippedObject->GetClass()->ImplementsInterface(UVRGripInterface::StaticClass()))
+					{
+						IVRGripInterface::Execute_OnSecondaryGripRelease(Grip.GrippedObject, Grip.ValueCache.OldSecondaryAttachment, Grip);
+
+						TArray<UVRGripScriptBase*> GripScripts;
+						if (IVRGripInterface::Execute_GetGripScripts(Grip.GrippedObject, GripScripts))
+						{
+							for (UVRGripScriptBase* Script : GripScripts)
+							{
+								if (Script)
+								{
+									Script->OnSecondaryGripRelease(this, Grip.ValueCache.OldSecondaryAttachment, Grip);
+								}
+							}
+						}
+					}
+				}
+
+				if (bSendGripEvent)
 				{
 					if (Grip.GrippedObject->GetClass()->ImplementsInterface(UVRGripInterface::StaticClass()))
 					{
@@ -397,25 +425,6 @@ public:
 								if (Script)
 								{
 									Script->OnSecondaryGrip(this, Grip.SecondaryGripInfo.SecondaryAttachment, Grip);
-								}
-							}
-						}
-					}
-				}
-				else
-				{
-					if (Grip.GrippedObject->GetClass()->ImplementsInterface(UVRGripInterface::StaticClass()))
-					{
-						IVRGripInterface::Execute_OnSecondaryGripRelease(Grip.GrippedObject, Grip.SecondaryGripInfo.SecondaryAttachment, Grip);
-
-						TArray<UVRGripScriptBase*> GripScripts;
-						if (IVRGripInterface::Execute_GetGripScripts(Grip.GrippedObject, GripScripts))
-						{
-							for (UVRGripScriptBase* Script : GripScripts)
-							{
-								if (Script)
-								{
-									Script->OnSecondaryGripRelease(this, Grip.SecondaryGripInfo.SecondaryAttachment, Grip);
 								}
 							}
 						}
@@ -451,6 +460,7 @@ public:
 		Grip.ValueCache.CachedPhysicsSettings = Grip.AdvancedGripSettings.PhysicsSettings;
 		Grip.ValueCache.CachedBoneName = Grip.GrippedBoneName;
 		Grip.ValueCache.CachedGripID = Grip.GripID;
+		Grip.ValueCache.OldSecondaryAttachment = Grip.SecondaryGripInfo.SecondaryAttachment;
 
 		return true;
 	}

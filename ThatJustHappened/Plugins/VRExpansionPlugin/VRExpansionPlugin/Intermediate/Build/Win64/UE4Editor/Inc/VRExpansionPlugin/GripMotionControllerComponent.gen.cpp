@@ -354,10 +354,11 @@ void EmptyLinkFunctionForGeneratedCodeGripMotionControllerComponent() {}
 		ProcessEvent(FindFunctionChecked(NAME_UGripMotionControllerComponent_Server_NotifyLocalGripAddedOrChanged),&Parms);
 	}
 	static FName NAME_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved = FName(TEXT("Server_NotifyLocalGripRemoved"));
-	void UGripMotionControllerComponent::Server_NotifyLocalGripRemoved(uint8 GripID, FVector_NetQuantize100 AngularVelocity, FVector_NetQuantize100 LinearVelocity)
+	void UGripMotionControllerComponent::Server_NotifyLocalGripRemoved(uint8 GripID, FTransform_NetQuantize const& TransformAtDrop, FVector_NetQuantize100 AngularVelocity, FVector_NetQuantize100 LinearVelocity)
 	{
 		GripMotionControllerComponent_eventServer_NotifyLocalGripRemoved_Parms Parms;
 		Parms.GripID=GripID;
+		Parms.TransformAtDrop=TransformAtDrop;
 		Parms.AngularVelocity=AngularVelocity;
 		Parms.LinearVelocity=LinearVelocity;
 		ProcessEvent(FindFunctionChecked(NAME_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved),&Parms);
@@ -3238,6 +3239,10 @@ void EmptyLinkFunctionForGeneratedCodeGripMotionControllerComponent() {}
 	{
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_LinearVelocity;
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_AngularVelocity;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TransformAtDrop_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_TransformAtDrop;
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_GripID;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -3247,10 +3252,17 @@ void EmptyLinkFunctionForGeneratedCodeGripMotionControllerComponent() {}
 	};
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_LinearVelocity = { UE4CodeGen_Private::EPropertyClass::Struct, "LinearVelocity", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(GripMotionControllerComponent_eventServer_NotifyLocalGripRemoved_Parms, LinearVelocity), Z_Construct_UScriptStruct_FVector_NetQuantize100, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_AngularVelocity = { UE4CodeGen_Private::EPropertyClass::Struct, "AngularVelocity", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(GripMotionControllerComponent_eventServer_NotifyLocalGripRemoved_Parms, AngularVelocity), Z_Construct_UScriptStruct_FVector_NetQuantize100, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_TransformAtDrop_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_TransformAtDrop = { UE4CodeGen_Private::EPropertyClass::Struct, "TransformAtDrop", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000008000082, 1, nullptr, STRUCT_OFFSET(GripMotionControllerComponent_eventServer_NotifyLocalGripRemoved_Parms, TransformAtDrop), Z_Construct_UScriptStruct_FTransform_NetQuantize, METADATA_PARAMS(Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_TransformAtDrop_MetaData, ARRAY_COUNT(Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_TransformAtDrop_MetaData)) };
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_GripID = { UE4CodeGen_Private::EPropertyClass::Byte, "GripID", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(GripMotionControllerComponent_eventServer_NotifyLocalGripRemoved_Parms, GripID), nullptr, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_LinearVelocity,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_AngularVelocity,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_TransformAtDrop,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved_Statics::NewProp_GripID,
 	};
 #if WITH_METADATA
@@ -4381,7 +4393,7 @@ void EmptyLinkFunctionForGeneratedCodeGripMotionControllerComponent() {}
 		{ &Z_Construct_UFunction_UGripMotionControllerComponent_RemoveSecondaryAttachmentPoint, "RemoveSecondaryAttachmentPoint" }, // 43101653
 		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyDropAndSocketGrip, "Server_NotifyDropAndSocketGrip" }, // 537739419
 		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripAddedOrChanged, "Server_NotifyLocalGripAddedOrChanged" }, // 1056214439
-		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved, "Server_NotifyLocalGripRemoved" }, // 1286028250
+		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifyLocalGripRemoved, "Server_NotifyLocalGripRemoved" }, // 2935493092
 		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifySecondaryAttachmentChanged, "Server_NotifySecondaryAttachmentChanged" }, // 1178691691
 		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_NotifySecondaryAttachmentChanged_Retain, "Server_NotifySecondaryAttachmentChanged_Retain" }, // 1539538824
 		{ &Z_Construct_UFunction_UGripMotionControllerComponent_Server_SendControllerTransform, "Server_SendControllerTransform" }, // 2522541473
@@ -4651,7 +4663,7 @@ void EmptyLinkFunctionForGeneratedCodeGripMotionControllerComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UGripMotionControllerComponent, 29473991);
+	IMPLEMENT_CLASS(UGripMotionControllerComponent, 4232098704);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UGripMotionControllerComponent(Z_Construct_UClass_UGripMotionControllerComponent, &UGripMotionControllerComponent::StaticClass, TEXT("/Script/VRExpansionPlugin"), TEXT("UGripMotionControllerComponent"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UGripMotionControllerComponent);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

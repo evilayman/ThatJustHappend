@@ -30,7 +30,6 @@ void EmptyLinkFunctionForGeneratedCodeVRBPDatatypes() {}
 	VREXPANSIONPLUGIN_API UEnum* Z_Construct_UEnum_VRExpansionPlugin_EBPVRResultSwitch();
 	VREXPANSIONPLUGIN_API UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRConjoinedMovementModes();
 	VREXPANSIONPLUGIN_API UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRCustomMovementMode();
-	VREXPANSIONPLUGIN_API UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis();
 	VREXPANSIONPLUGIN_API UScriptStruct* Z_Construct_UScriptStruct_FBPActorPhysicsHandleInformation();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	VREXPANSIONPLUGIN_API UScriptStruct* Z_Construct_UScriptStruct_FBPInterfaceProperties();
@@ -551,7 +550,7 @@ void EmptyLinkFunctionForGeneratedCodeVRBPDatatypes() {}
 		return Singleton;
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EGripCollisionType(EGripCollisionType_StaticEnum, TEXT("/Script/VRExpansionPlugin"), TEXT("EGripCollisionType"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_VRExpansionPlugin_EGripCollisionType_CRC() { return 3875927677U; }
+	uint32 Get_Z_Construct_UEnum_VRExpansionPlugin_EGripCollisionType_CRC() { return 2827813887U; }
 	UEnum* Z_Construct_UEnum_VRExpansionPlugin_EGripCollisionType()
 	{
 #if WITH_HOT_RELOAD
@@ -573,12 +572,14 @@ void EmptyLinkFunctionForGeneratedCodeVRBPDatatypes() {}
 				{ "EGripCollisionType::ManipulationGripWithWristTwist", (int64)EGripCollisionType::ManipulationGripWithWristTwist },
 				{ "EGripCollisionType::AttachmentGrip", (int64)EGripCollisionType::AttachmentGrip },
 				{ "EGripCollisionType::CustomGrip", (int64)EGripCollisionType::CustomGrip },
+				{ "EGripCollisionType::EventsOnly", (int64)EGripCollisionType::EventsOnly },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 				{ "AttachmentGrip.ToolTip", "Attachment grips use native attachment and only sets location / rotation if they differ, this grip always late updates" },
 				{ "BlueprintType", "true" },
 				{ "CustomGrip.ToolTip", "Custom grip is to be handled by the object itself, it just sends the TickGrip event every frame but doesn't move the object." },
+				{ "EventsOnly.ToolTip", "A grip that does not tick or move, used for drop / grip events only and uses least amount of processing." },
 				{ "InteractiveCollisionWithPhysics.ToolTip", "Held items can be offset by geometry, uses physics for the offset, pushes physics simulating objects with weight taken into account." },
 				{ "InteractiveCollisionWithSweep.ToolTip", "Held items can be offset by geometry, uses sweep for the offset, pushes physics simulating objects, no weight." },
 				{ "InteractiveHybridCollisionWithPhysics.ToolTip", "Uses Stiffness and damping settings on collision, on no collision uses stiffness values 10x stronger so it has less play." },
@@ -929,55 +930,6 @@ void EmptyLinkFunctionForGeneratedCodeVRBPDatatypes() {}
 				nullptr,
 				(uint8)UEnum::ECppForm::EnumClass,
 				"EVRCustomMovementMode",
-				Enumerators,
-				ARRAY_COUNT(Enumerators),
-				METADATA_PARAMS(Enum_MetaDataParams, ARRAY_COUNT(Enum_MetaDataParams))
-			};
-			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
-		}
-		return ReturnEnum;
-	}
-	static UEnum* EVRInteractibleAxis_StaticEnum()
-	{
-		static UEnum* Singleton = nullptr;
-		if (!Singleton)
-		{
-			Singleton = GetStaticEnum(Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis, Z_Construct_UPackage__Script_VRExpansionPlugin(), TEXT("EVRInteractibleAxis"));
-		}
-		return Singleton;
-	}
-	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EVRInteractibleAxis(EVRInteractibleAxis_StaticEnum, TEXT("/Script/VRExpansionPlugin"), TEXT("EVRInteractibleAxis"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis_CRC() { return 3867323942U; }
-	UEnum* Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis()
-	{
-#if WITH_HOT_RELOAD
-		UPackage* Outer = Z_Construct_UPackage__Script_VRExpansionPlugin();
-		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EVRInteractibleAxis"), 0, Get_Z_Construct_UEnum_VRExpansionPlugin_EVRInteractibleAxis_CRC(), false);
-#else
-		static UEnum* ReturnEnum = nullptr;
-#endif // WITH_HOT_RELOAD
-		if (!ReturnEnum)
-		{
-			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
-				{ "EVRInteractibleAxis::Axis_X", (int64)EVRInteractibleAxis::Axis_X },
-				{ "EVRInteractibleAxis::Axis_Y", (int64)EVRInteractibleAxis::Axis_Y },
-				{ "EVRInteractibleAxis::Axis_Z", (int64)EVRInteractibleAxis::Axis_Z },
-			};
-#if WITH_METADATA
-			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-				{ "BlueprintType", "true" },
-				{ "IsBlueprintBase", "true" },
-				{ "ModuleRelativePath", "Public/VRBPDatatypes.h" },
-			};
-#endif
-			static const UE4CodeGen_Private::FEnumParams EnumParams = {
-				(UObject*(*)())Z_Construct_UPackage__Script_VRExpansionPlugin,
-				UE4CodeGen_Private::EDynamicType::NotDynamic,
-				"EVRInteractibleAxis",
-				RF_Public|RF_Transient|RF_MarkAsNative,
-				nullptr,
-				(uint8)UEnum::ECppForm::EnumClass,
-				"EVRInteractibleAxis",
 				Enumerators,
 				ARRAY_COUNT(Enumerators),
 				METADATA_PARAMS(Enum_MetaDataParams, ARRAY_COUNT(Enum_MetaDataParams))

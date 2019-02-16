@@ -209,11 +209,11 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 		ProcessEvent(FindFunctionChecked(NAME_UVRButtonComponent_ReceiveButtonEndInteraction),&Parms);
 	}
 	static FName NAME_UVRButtonComponent_ReceiveButtonStateChanged = FName(TEXT("ReceiveButtonStateChanged"));
-	void UVRButtonComponent::ReceiveButtonStateChanged(bool bCurButtonState, AActor* InteractingActor, UPrimitiveComponent* InteractingComponent)
+	void UVRButtonComponent::ReceiveButtonStateChanged(bool bCurButtonState, AActor* LastInteractingActor, UPrimitiveComponent* InteractingComponent)
 	{
 		VRButtonComponent_eventReceiveButtonStateChanged_Parms Parms;
 		Parms.bCurButtonState=bCurButtonState ? true : false;
-		Parms.InteractingActor=InteractingActor;
+		Parms.LastInteractingActor=LastInteractingActor;
 		Parms.InteractingComponent=InteractingComponent;
 		ProcessEvent(FindFunctionChecked(NAME_UVRButtonComponent_ReceiveButtonStateChanged),&Parms);
 	}
@@ -543,7 +543,7 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InteractingComponent_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_InteractingComponent;
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_InteractingActor;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_LastInteractingActor;
 		static void NewProp_bCurButtonState_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCurButtonState;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -558,7 +558,7 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_InteractingComponent = { UE4CodeGen_Private::EPropertyClass::Object, "InteractingComponent", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000080080, 1, nullptr, STRUCT_OFFSET(VRButtonComponent_eventReceiveButtonStateChanged_Parms, InteractingComponent), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_InteractingComponent_MetaData, ARRAY_COUNT(Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_InteractingComponent_MetaData)) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_InteractingActor = { UE4CodeGen_Private::EPropertyClass::Object, "InteractingActor", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(VRButtonComponent_eventReceiveButtonStateChanged_Parms, InteractingActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_LastInteractingActor = { UE4CodeGen_Private::EPropertyClass::Object, "LastInteractingActor", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(VRButtonComponent_eventReceiveButtonStateChanged_Parms, LastInteractingActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	void Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_bCurButtonState_SetBit(void* Obj)
 	{
 		((VRButtonComponent_eventReceiveButtonStateChanged_Parms*)Obj)->bCurButtonState = 1;
@@ -566,7 +566,7 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_bCurButtonState = { UE4CodeGen_Private::EPropertyClass::Bool, "bCurButtonState", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(VRButtonComponent_eventReceiveButtonStateChanged_Parms), &Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_bCurButtonState_SetBit, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_InteractingComponent,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_InteractingActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_LastInteractingActor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged_Statics::NewProp_bCurButtonState,
 	};
 #if WITH_METADATA
@@ -762,17 +762,17 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 		static void NewProp_bIsEnabled_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsEnabled;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LastInteractingComponent_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LocalLastInteractingComponent_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FWeakObjectPropertyParams NewProp_LastInteractingComponent;
+		static const UE4CodeGen_Private::FWeakObjectPropertyParams NewProp_LocalLastInteractingComponent;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LastInteractingActor_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LocalLastInteractingActor_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FWeakObjectPropertyParams NewProp_LastInteractingActor;
+		static const UE4CodeGen_Private::FWeakObjectPropertyParams NewProp_LocalLastInteractingActor;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InteractingComponent_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LocalInteractingComponent_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FWeakObjectPropertyParams NewProp_InteractingComponent;
+		static const UE4CodeGen_Private::FWeakObjectPropertyParams NewProp_LocalInteractingComponent;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OnButtonEndInteraction_MetaData[];
 #endif
@@ -800,7 +800,7 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 		{ &Z_Construct_UFunction_UVRButtonComponent_OnOverlapEnd, "OnOverlapEnd" }, // 2383724212
 		{ &Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonBeginInteraction, "ReceiveButtonBeginInteraction" }, // 2957888027
 		{ &Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonEndInteraction, "ReceiveButtonEndInteraction" }, // 1623803178
-		{ &Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged, "ReceiveButtonStateChanged" }, // 624425708
+		{ &Z_Construct_UFunction_UVRButtonComponent_ReceiveButtonStateChanged, "ReceiveButtonStateChanged" }, // 4000775965
 		{ &Z_Construct_UFunction_UVRButtonComponent_ResetInitialButtonLocation, "ResetInitialButtonLocation" }, // 3993124034
 		{ &Z_Construct_UFunction_UVRButtonComponent_SetButtonState, "SetButtonState" }, // 1106006713
 		{ &Z_Construct_UFunction_UVRButtonComponent_SetButtonToRestingPosition, "SetButtonToRestingPosition" }, // 4150989369
@@ -904,27 +904,27 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_bIsEnabled = { UE4CodeGen_Private::EPropertyClass::Bool, "bIsEnabled", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(UVRButtonComponent), &Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_bIsEnabled_SetBit, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_bIsEnabled_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_bIsEnabled_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingComponent_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingComponent_MetaData[] = {
 		{ "Category", "VRButtonComponent" },
 		{ "ModuleRelativePath", "Public/Interactibles/VRButtonComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FWeakObjectPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingComponent = { UE4CodeGen_Private::EPropertyClass::WeakObject, "LastInteractingComponent", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001400000008001c, 1, nullptr, STRUCT_OFFSET(UVRButtonComponent, LastInteractingComponent), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingComponent_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingComponent_MetaData)) };
+	const UE4CodeGen_Private::FWeakObjectPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingComponent = { UE4CodeGen_Private::EPropertyClass::WeakObject, "LocalLastInteractingComponent", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001400000008001c, 1, nullptr, STRUCT_OFFSET(UVRButtonComponent, LocalLastInteractingComponent), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingComponent_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingComponent_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingActor_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingActor_MetaData[] = {
 		{ "Category", "VRButtonComponent" },
 		{ "ModuleRelativePath", "Public/Interactibles/VRButtonComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FWeakObjectPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingActor = { UE4CodeGen_Private::EPropertyClass::WeakObject, "LastInteractingActor", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0014000000000014, 1, nullptr, STRUCT_OFFSET(UVRButtonComponent, LastInteractingActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingActor_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingActor_MetaData)) };
+	const UE4CodeGen_Private::FWeakObjectPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingActor = { UE4CodeGen_Private::EPropertyClass::WeakObject, "LocalLastInteractingActor", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0014000000000014, 1, nullptr, STRUCT_OFFSET(UVRButtonComponent, LocalLastInteractingActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingActor_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingActor_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_InteractingComponent_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalInteractingComponent_MetaData[] = {
 		{ "Category", "VRButtonComponent" },
 		{ "ModuleRelativePath", "Public/Interactibles/VRButtonComponent.h" },
 		{ "ToolTip", "On the button state changing, keep in mind that InteractingActor can be invalid if manually setting the state" },
 	};
 #endif
-	const UE4CodeGen_Private::FWeakObjectPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_InteractingComponent = { UE4CodeGen_Private::EPropertyClass::WeakObject, "InteractingComponent", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001400000008001c, 1, nullptr, STRUCT_OFFSET(UVRButtonComponent, InteractingComponent), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_InteractingComponent_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_InteractingComponent_MetaData)) };
+	const UE4CodeGen_Private::FWeakObjectPropertyParams Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalInteractingComponent = { UE4CodeGen_Private::EPropertyClass::WeakObject, "LocalInteractingComponent", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001400000008001c, 1, nullptr, STRUCT_OFFSET(UVRButtonComponent, LocalInteractingComponent), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalInteractingComponent_MetaData, ARRAY_COUNT(Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalInteractingComponent_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_OnButtonEndInteraction_MetaData[] = {
 		{ "Category", "VRButtonComponent" },
@@ -961,9 +961,9 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_DepressSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_bButtonState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_bIsEnabled,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingComponent,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LastInteractingActor,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_InteractingComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalLastInteractingActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_LocalInteractingComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_OnButtonEndInteraction,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_OnButtonBeginInteraction,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVRButtonComponent_Statics::NewProp_OnButtonStateChanged,
@@ -991,7 +991,7 @@ void EmptyLinkFunctionForGeneratedCodeVRButtonComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UVRButtonComponent, 831482842);
+	IMPLEMENT_CLASS(UVRButtonComponent, 3368673543);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UVRButtonComponent(Z_Construct_UClass_UVRButtonComponent, &UVRButtonComponent::StaticClass, TEXT("/Script/VRExpansionPlugin"), TEXT("UVRButtonComponent"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UVRButtonComponent);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
