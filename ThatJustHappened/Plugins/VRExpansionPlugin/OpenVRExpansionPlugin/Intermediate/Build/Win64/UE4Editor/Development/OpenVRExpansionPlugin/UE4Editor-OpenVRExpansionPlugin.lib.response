@@ -6,8 +6,8 @@
 /NAME:"UE4Editor-OpenVRExpansionPlugin.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h.obj"
-"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\Module.OpenVRExpansionPlugin.cpp.obj"
-"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\Module.OpenVRExpansionPlugin.gen.cpp.obj"
-"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\PCLaunch.rc.res"
-/OUT:"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\UE4Editor-OpenVRExpansionPlugin.lib"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\Module.OpenVRExpansionPlugin.cpp.obj"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\Module.OpenVRExpansionPlugin.gen.cpp.obj"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\PCLaunch.rc.res"
+/OUT:"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\UE4Editor-OpenVRExpansionPlugin.lib"

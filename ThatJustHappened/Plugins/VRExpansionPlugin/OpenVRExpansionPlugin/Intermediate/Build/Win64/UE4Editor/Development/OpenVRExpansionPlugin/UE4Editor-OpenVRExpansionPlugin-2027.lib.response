@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-OpenVRExpansionPlugin-2027.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\Module.OpenVRExpansionPlugin.cpp.obj"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\Module.OpenVRExpansionPlugin.gen.cpp.obj"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\PCLaunch.rc.res"
+/OUT:"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\VRExpansionPlugin\OpenVRExpansionPlugin\Intermediate\Build\Win64\UE4Editor\Development\OpenVRExpansionPlugin\UE4Editor-OpenVRExpansionPlugin-2027.lib"

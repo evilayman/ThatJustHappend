@@ -24,7 +24,7 @@
 /wd4838
 /we4668
 /I .
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private"
 /I ..\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Inc\OnlineSubsystem
 /I ..\Plugins\Online\OnlineSubsystem
 /I ..\Plugins\Online\OnlineSubsystem\Source
@@ -78,11 +78,11 @@
 /I ..\Plugins\Online\OnlineSubsystemUtils\Source\OnlineSubsystemUtils\Classes
 /I ..\Plugins\Online\OnlineSubsystemUtils\Source\OnlineSubsystemUtils\Public
 /I ..\Plugins\Online\OnlineSubsystemUtils\Source\OnlineSubsystemUtils
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSteamSessions
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSteamSessions"
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source"
 /I ..\Plugins\Online\OnlineSubsystemSteam\Source\Private
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes"
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions"
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
 /I Runtime\CoreUObject\Public
 /I Runtime\CoreUObject
@@ -434,10 +434,10 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSessions
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Source
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions\Classes
-/I D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSessions"
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Source"
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions\Classes"
+/I "C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions"
 /I ThirdParty\Steamworks\Steamv139\sdk\public
 /I ..\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UE4Editor\Inc\OnlineSubsystemSteam
 /I ..\Plugins\Online\OnlineSubsystemSteam
@@ -450,12 +450,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt"
-/FI"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h"
-/Yu"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h"
-/Fp"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h.pch"
-"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.gen.cpp"
-/FI"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Definitions.AdvancedSteamSessions.h"
-/Fo"D:\Raskulls\Unreal\ThatJustHappened\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.gen.cpp.obj"
+/FI"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h"
+/Yu"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h"
+/Fp"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Intermediate\Build\Win64\ThatJustHappendEditor\Development\Engine\SharedPCH.Engine.h.pch"
+"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.gen.cpp"
+/FI"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Definitions.AdvancedSteamSessions.h"
+/Fo"C:\Users\Kai Sama\Documents\ThatJustHappend\ThatJustHappened\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.gen.cpp.obj"
 /TP
 /GR-
 /W4
